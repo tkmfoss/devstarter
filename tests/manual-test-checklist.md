@@ -57,6 +57,9 @@ python3 -m http.server 8000
 
 - [ ] The skip link is visible when focused via the keyboard.
 - [ ] Focus order is logical and visible focus styles appear on focus.
+- [ ] Pressing "/" outside a form control focuses the search input.
+- [ ] Pressing "/" inside an input, textarea, select, or editable element does not
+      trigger the search shortcut.
 - [ ] All interactive controls (search input, filters, toggle, reset) are reachable via keyboard.
 - [ ] The theme toggle, category filters, and primary nav link are at least 44 px tall on
       mobile.
