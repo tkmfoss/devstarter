@@ -39,4 +39,13 @@ export const webDevelopmentResources = [
     tags: ["css", "frontend", "design"],
     url: "https://css-tricks.com/",
   },
+  {
+    id: 17,
+    title: "MDN Learn: CSS layout",
+    description:
+      "Learn CSS layout techniques, including Flexbox and Grid, with practical guides from MDN.",
+    category: "web-development",
+    tags: ["css", "flexbox", "grid", "layout", "frontend"],
+    url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout",
+  },
 ];
