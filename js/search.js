@@ -21,8 +21,14 @@ function buildResourceHaystack(resource) {
  * Matches against title and description (case-insensitive).
  */
 export function filterBySearch(resources, query) {
+
   const searchTerm = (query ?? "").toLowerCase();
 
+  /**
+   * @param {Array<objects>} resources - Resources to search
+   * @param {string} query - User-entered search text.
+   * @returns {Array<object>} Resources that match every search term.
+   */
   // An empty query returns the full list.
   if (searchTerm.length === 0) {
     return resources;

@@ -14,15 +14,27 @@ export const CATEGORIES = [
   { key: "tools-deployment", label: "Tools & Deployment" },
 ];
 
-/** Return a human-friendly label for a category key. */
+/**
+ * Return the human-friendly label associated with a category key.
+ *
+ * If the key is not defined in `CATEGORIES`, the key itself is returned.
+ *
+ * @param {string} categoryKey - The category key to look up.
+ * @returns {string} The matching category label, or the original key.
+ */
 export function getCategoryLabel(categoryKey) {
   const match = CATEGORIES.find((category) => category.key === categoryKey);
   return match ? match.label : categoryKey;
 }
 
 /**
- * Filter a list of resources by category.
- * An empty or "all" category returns the full list.
+ * Filter resources to those in the selected category.
+ * An empty or "all" category returns the full list unchanged.
+ *
+ * @template T
+ * @param {T[]} resources - The resources to filter; each resource has a `category` field.
+ * @param {string} category - The category key to match, or "all"/an empty value for every resource.
+ * @returns {T[]} The resources matching the selected category.
  */
 export function filterByCategory(resources, category) {
   const selectedCategory = category || "all";

@@ -9,7 +9,11 @@
 
 const STORAGE_KEY = "devstarter-theme";
 
-/** Read the theme the user picked previously, or the OS preference. */
+/**
+ * Get the saved theme preference, falling back to the operating system setting.
+ *
+ * @returns {"light" | "dark"} The saved theme, or the current OS preference.
+ */
 export function getPreferredTheme() {
   try {
     const storedTheme = window.localStorage.getItem(STORAGE_KEY);
@@ -25,7 +29,12 @@ export function getPreferredTheme() {
   return prefersDark ? "dark" : "light";
 }
 
-/** Apply a theme and update the toggle button's accessible state. */
+/**
+ * Apply a theme to the document and update the toggle button's accessible state.
+ *
+ * @param {"light" | "dark"} theme - The theme to apply.
+ * @returns {void}
+ */
 export function applyTheme(theme) {
   console.log("[DevStarter] Applying theme:", theme);
   document.documentElement.dataset.theme = theme;
@@ -41,7 +50,12 @@ export function applyTheme(theme) {
   }
 }
 
-/** Persist a theme choice and apply it immediately. */
+/**
+ * Persist a theme choice when storage is available, then apply it immediately.
+ *
+ * @param {"light" | "dark"} theme - The theme to save and apply.
+ * @returns {void}
+ */
 export function setTheme(theme) {
   try {
     window.localStorage.setItem(STORAGE_KEY, theme);
@@ -51,7 +65,11 @@ export function setTheme(theme) {
   applyTheme(theme);
 }
 
-/** Initialise the theme on page load and wire the header toggle. */
+/**
+ * Apply the preferred theme and register the header toggle click handler.
+ *
+ * @returns {void}
+ */
 export function initTheme() {
   applyTheme(getPreferredTheme());
 

@@ -37,7 +37,17 @@ function getVisibleResources() {
   return searchedResources;
 }
 
-/** Create a full resource card element from a data object. */
+/**
+ * Build a resource card DOM element from a resource data object.
+ *
+ * @param {Object} resource - Resource data used to populate the card.
+ * @param {string} [resource.title] - The resource title.
+ * @param {string} [resource.description] - A short resource description.
+ * @param {string[]} [resource.tags] - Tags to display on the card.
+ * @param {string} [resource.category] - Category key used for the badge label.
+ * @param {string} [resource.url] - Optional URL for the resource link.
+ * @returns {HTMLElement} The completed resource card element.
+ */
 function createResourceCard(resource) {
   const card = document.createElement("article");
   card.className = "resource-card";
@@ -112,7 +122,12 @@ function createResourceCard(resource) {
   return card;
 }
 
-/** Render the resource grid, or show the empty state when nothing matches. */
+/**
+ * Render resource cards into the grid, or show the empty state when none match.
+ *
+ * @param {Object[]} resources - Resources to display in the grid.
+ * @returns {void}
+ */
 function renderResources(resources) {
   const grid = document.getElementById("resource-grid");
   const emptyState = document.getElementById("empty-state");
