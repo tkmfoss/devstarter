@@ -102,6 +102,32 @@ function createResourceCard(resource) {
     link.appendChild(icon);
     link.appendChild(document.createTextNode("Visit resource"));
     footer.appendChild(link);
+    const copyButton = document.createElement("button");
+copyButton.type = "button";
+copyButton.className = "resource-card__copy";
+copyButton.textContent = "Copy URL";
+
+copyButton.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(resource.url);
+
+    copyButton.textContent = "Copied!";
+    copyButton.disabled = true;
+
+    setTimeout(() => {
+      copyButton.textContent = "Copy URL";
+      copyButton.disabled = false;
+    }, 1500);
+  } catch {
+    copyButton.textContent = "Copy failed";
+
+    setTimeout(() => {
+      copyButton.textContent = "Copy URL";
+    }, 1500);
+  }
+});
+
+footer.appendChild(copyButton);
   }
 
   card.appendChild(title);
