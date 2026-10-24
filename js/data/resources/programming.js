@@ -40,4 +40,12 @@ export const programmingResources = [
     tags: ["javascript", "frontend", "documentation"],
     url: "https://javascript.info/",
   },
+  {
+    id: 20,
+    title: "SQLBolt - Learn SQL",
+    description: "An interactive, beginner-friendly tutorial that teaches SQL through simple lessons and exercises.",
+    category: "programming",
+    tags: ["sql", "database", "programming", "tutorial", "beginner"],
+    url: "https://sqlbolt.com/"
+  },
 ];
