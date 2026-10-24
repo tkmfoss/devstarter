@@ -195,6 +195,20 @@ function initApp() {
   searchForm.addEventListener("submit", (event) => event.preventDefault());
   searchInput.addEventListener("input", handleSearchChange);
   categoryFilters.addEventListener("click", handleCategoryClick);
+  document.addEventListener("keydown", (event) => {
+    const target = event.target;
+    const isFormControl =
+      target instanceof Element &&
+      (target.matches('input, textarea, select, [contenteditable="true"]') ||
+        target.isContentEditable);
+
+    if (isFormControl || event.key !== "/") {
+      return;
+    }
+
+    event.preventDefault();
+    searchInput.focus();
+  });
 
   emptyStateReset.addEventListener("click", () => {
     currentQuery = "";
