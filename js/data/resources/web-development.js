@@ -39,4 +39,14 @@ export const webDevelopmentResources = [
     tags: ["css", "frontend", "design"],
     url: "https://css-tricks.com/",
   },
+    {
+    id: 8,
+    title: "W3C - Introduction to Web Accessibility",
+    description:
+      "Learn the fundamentals of web accessibility, including keyboard navigation, screen readers, alternative text, and inclusive web design.",
+    category: "web-development",
+    tags: ["accessibility", "web-development", "inclusive-design", "a11y"],
+    url: "https://www.w3.org/WAI/fundamentals/accessibility-intro/",
+  },
 ];
+
