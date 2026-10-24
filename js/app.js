@@ -183,6 +183,9 @@ function updateCategoryButtons() {
 }
 
 /** Wire up all interactive behaviour for the DevStarter app. */
+/** Wire up all interactive behaviour for the DevStarter app. */
+/** Apply search + category filters and return the final list. */
+/** Wire up all interactive behaviour for the DevStarter app. */
 function initApp() {
   console.log("[DevStarter] Initialising application");
   initTheme();
@@ -204,8 +207,23 @@ function initApp() {
     refreshResources();
   });
 
+  // Add keyboard shortcut to focus the search field (Issue 6)
+  document.addEventListener("keydown", (event) => {
+    const target = event.target;
+    const isFormElement =
+      target.matches('input, textarea, select, [contenteditable="true"]') ||
+      target.isContentEditable;
+
+    if (event.key === "/" && !isFormElement) {
+      event.preventDefault();
+      searchInput.focus();
+    }
+  });
+
   updateCategoryButtons();
   refreshResources();
 }
+
+
 
 initApp();
