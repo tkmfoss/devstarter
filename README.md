@@ -86,6 +86,15 @@ devstarter/
 ├── CONTRIBUTING.md
 └── LICENSE
 ```
+## Troubleshooting and FAQ
+### Why doesn't file:// work?
+DevStarter uses JavaScript ES modules, which may not work correctly when opening index.html directly using file://. Run the project using a local HTTP server instead.
+
+### How do I start a local server?
+Open a terminal in the project directory and run:
+   "```bash
+   python3 -m http.server 8000"
+
 
 ## Contributing
 
