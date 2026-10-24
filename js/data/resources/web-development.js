@@ -31,7 +31,7 @@ export const webDevelopmentResources = [
     url: "https://www.frontendmentor.io/",
   },
   {
-    id: 7,
+    id: 8,
     title: "CSS-Tricks",
     description:
       "Articles, guides, and videos about CSS, including practical layout techniques such as Flexbox and Grid.",

@@ -13,7 +13,7 @@ export const designResources = [
     url: "https://www.figma.com/",
   },
   {
-    id: 13,
+    id: 12,
     title: "Material Design",
     description:
       "Google's design system with principles, components, and guidelines for building interfaces.",
