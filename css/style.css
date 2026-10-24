@@ -509,3 +509,12 @@ input {
     height: 48px;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .resource-card {
+    transition: none;
+  }
+}
