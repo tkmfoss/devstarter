@@ -37,6 +37,47 @@ function getVisibleResources() {
   return searchedResources;
 }
 
+/** Create an external resource link element. */
+function createExternalLink(resource) {
+  if (!resource.url) {
+    return null;
+  }
+
+  const link = document.createElement("a");
+  link.className = "resource-card__link";
+  link.href = resource.url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  icon.setAttribute("class", "icon icon-external");
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("fill", "none");
+  icon.setAttribute("stroke", "currentColor");
+  icon.setAttribute("stroke-width", "2");
+  icon.setAttribute("stroke-linecap", "round");
+  icon.setAttribute("stroke-linejoin", "round");
+  icon.setAttribute("aria-hidden", "true");
+  icon.setAttribute("focusable", "false");
+
+  const firstPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  firstPath.setAttribute("d", "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6");
+  icon.appendChild(firstPath);
+
+  const secondPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  secondPath.setAttribute("d", "M15 3h6v6");
+  icon.appendChild(secondPath);
+
+  const thirdPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  thirdPath.setAttribute("d", "M10 14 21 3");
+  icon.appendChild(thirdPath);
+
+  link.appendChild(icon);
+  link.appendChild(document.createTextNode("Visit resource"));
+
+  return link;
+}
+
 /** Create a full resource card element from a data object. */
 function createResourceCard(resource) {
   const card = document.createElement("article");
@@ -69,38 +110,8 @@ function createResourceCard(resource) {
 
   footer.appendChild(badge);
 
-  if (resource.url) {
-    const link = document.createElement("a");
-    link.className = "resource-card__link";
-    link.href = resource.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-
-    const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    icon.setAttribute("class", "icon icon-external");
-    icon.setAttribute("viewBox", "0 0 24 24");
-    icon.setAttribute("fill", "none");
-    icon.setAttribute("stroke", "currentColor");
-    icon.setAttribute("stroke-width", "2");
-    icon.setAttribute("stroke-linecap", "round");
-    icon.setAttribute("stroke-linejoin", "round");
-    icon.setAttribute("aria-hidden", "true");
-    icon.setAttribute("focusable", "false");
-
-    const firstPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    firstPath.setAttribute("d", "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6");
-    icon.appendChild(firstPath);
-
-    const secondPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    secondPath.setAttribute("d", "M15 3h6v6");
-    icon.appendChild(secondPath);
-
-    const thirdPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    thirdPath.setAttribute("d", "M10 14 21 3");
-    icon.appendChild(thirdPath);
-
-    link.appendChild(icon);
-    link.appendChild(document.createTextNode("Visit resource"));
+  const link = createExternalLink(resource);
+  if (link) {
     footer.appendChild(link);
   }
 
