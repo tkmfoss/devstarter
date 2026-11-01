@@ -4,7 +4,7 @@
 
 export const designResources = [
   {
-    id: 11,
+    id: 12,
     title: "Figma",
     description:
       "A collaborative interface design tool used for wireframes, prototypes, and design systems.",
